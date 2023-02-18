@@ -11,6 +11,6 @@ const playTune = (key)=> {
 
 pianoKeys.forEach(key => {
     // calling playTune function with passing dat-key value as an argument
-    key.addEventListener('click', ()=> playTune(key.dataset.key));
+    key.addEventListener('mousedown', ()=> playTune(key.dataset.key));
 } );
 
