@@ -1,12 +1,19 @@
+
+
+window.onload = function(){
+    alert("please rotate your phone if you are using mobile devices ! Ignore this alert if not ");
+}
+
 const pianoKeys = document.querySelectorAll('.piano-keys .key'),
 volumeSlider = document.querySelector('.volume-slider input'),
 keysCheckbox = document.querySelector('.keys-checkbox input');
 
 
 
-let allKeys = [] , audio = new Audio("./assets/a.wav");  //  by default, audio src is "a" tune 
+let allKeys = [] , audio = new Audio("./assets/a.wav") //  by default, audio src is "a" tune 
 
 const playTune = (key)=> { 
+    
     audio.src = `./assets/${key}.wav` // passing audio src based on key pressed 
     audio.play();  // playing audio
     
@@ -38,11 +45,15 @@ const showHideKeys = () => {
 }
 
 const pressedKey = (e) => {
-    //id the pressed key is in the allKeys array, only call the playTune function
+    //if the pressed key is in the allKeys array, only call the playTune function
    if(allKeys.includes(e.key)) playTune(e.key);
 } 
+
 
 
 keysCheckbox.addEventListener('click',showHideKeys);
 volumeSlider.addEventListener('input',handleVolume);
 document.addEventListener('keydown',pressedKey);
+
+// code for playing pre-stored songs
+
